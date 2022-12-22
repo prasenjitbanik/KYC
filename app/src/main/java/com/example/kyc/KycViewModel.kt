@@ -35,10 +35,21 @@ class KycViewModel : ViewModel() {
             }
 
             if(isPanvalid.not()){
-                _panErrorMessage.postValue("Pan number is not valid")
+                if(_pan.isEmpty()){
+                    _panErrorMessage.postValue("Please enter a pan number")
+                }else
+                {
+                    _panErrorMessage.postValue("Pan number is not valid")
+                }
+
             }
             if(isValidBirthDate.not()){
-                _birthDateErrorMessage.postValue("Please enter a correct Birthdate")
+                if(_day.isEmpty() || _month.isEmpty()||_year.isEmpty()){
+                    _birthDateErrorMessage.postValue("Please enter the Birthdate")
+                }else
+                {
+                    _birthDateErrorMessage.postValue("Please enter a correct Birthdate")
+                }
             }
             else{
                 _birthDateErrorMessage.postValue("")

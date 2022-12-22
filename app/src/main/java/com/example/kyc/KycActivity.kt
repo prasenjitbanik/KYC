@@ -36,7 +36,9 @@ class KycActivity : AppCompatActivity() {
         setKycInfoText(binding)
         with(binding) {
             etPanNumber.doOnTextChanged { text, start, before, count ->
-                kycViewModel.panNumber.value = text.toString()
+                if(text?.length==10) {
+                    kycViewModel.panNumber.value = text.toString()
+                }
             }
             dayOfBirth.doOnTextChanged { text, start, before, count ->
                 kycViewModel.dayOfBirth.value = text.toString()
@@ -46,7 +48,9 @@ class KycActivity : AppCompatActivity() {
                 kycViewModel.monthOfBirth.value = text.toString()
             }
             yearOfBirth.doOnTextChanged { text, start, before, count ->
-                kycViewModel.yearOfBirth.value = text.toString()
+                if(text?.length == 4) {
+                    kycViewModel.yearOfBirth.value = text.toString()
+                }
             }
         }
 
