@@ -9,4 +9,12 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="kyc_info_label">Providing PAN Date of Birth help find and fetch your KYC from central registry by the Goverment of India. Learn more</string>
+    <string name="kyc_screen_header">First of the few steps to set you up with a Bank Account</string>
+    <string name="pan_number">PAN NUMBER</string>
+    <string name="birthdate">BIRTHDATE</string>
+    <string name="enter_your_pan_number">Enter your pan number.</string>
+    <string name="day">Day</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
 </resources>

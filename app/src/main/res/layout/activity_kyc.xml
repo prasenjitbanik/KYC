@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
-        android:text="BIRTHDATE"
+        android:text="@string/birthdate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
 
@@ -24,7 +24,7 @@
         android:layout_marginTop="128dp"
         android:layout_marginEnd="32dp"
         android:fontFamily="sans-serif"
-        android:text="First of the few steps to set you up with a Bank Account"
+        android:text="@string/kyc_screen_header"
         android:textColor="@color/black"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
-        android:text="PAN NUMBER"
+        android:text="@string/pan_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -58,14 +58,14 @@
             android:id="@+id/et_pan_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:inputType="text"
+            android:hint="@string/enter_your_pan_number"
             android:imeOptions="actionNext"
-            />
+            android:inputType="textCapCharacters"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/day_of_birth"
+        android:id="@+id/layout_day_of_birth"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
@@ -74,52 +74,69 @@
         app:layout_constraintTop_toBottomOf="@+id/label_birthdate">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/day_of_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:imeOptions="actionNext"
             android:inputType="number"
-            android:maxLines="1"
-            android:maxLength="2"/>
+            android:hint="@string/day"
+            android:maxLength="2"
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/month_of_birth"
+        android:id="@+id/layout_month_of_birth"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/day_of_birth"
+        app:layout_constraintLeft_toRightOf="@+id/layout_day_of_birth"
         app:layout_constraintTop_toBottomOf="@+id/label_birthdate">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/month_of_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:inputType="number"
             android:imeOptions="actionNext"
+            android:inputType="number"
+            android:hint="@string/month"
             android:maxLength="2"
-            />
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/year_of_birth"
+        android:id="@+id/layout_year_of_birth"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
 
-        app:layout_constraintLeft_toRightOf="@+id/month_of_birth"
+        app:layout_constraintLeft_toRightOf="@+id/layout_month_of_birth"
         app:layout_constraintTop_toBottomOf="@+id/label_birthdate">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/year_of_birth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:inputType="number"
             android:imeOptions="actionDone"
+            android:inputType="number"
+            android:hint="@string/year"
             android:maxLength="4"
-            />
+            android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/tvErrorMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/label_kyc_disclaimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_month_of_birth"
+        tools:text="This is error messgae" />
+
 
     <TextView
         android:id="@+id/label_kyc_disclaimer"
@@ -128,10 +145,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:text="Providing PAN  Date of Birth help find and fetch your KYC from central registry by the Goverment of India. Learn more   "
+
+        android:text="@string/kyc_info_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/month_of_birth" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_month_of_birth" />
 
     <Button
         android:id="@+id/btn_next"
@@ -155,8 +173,8 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:textColor="@color/purple_default"
         android:text="I Don't have a PAN"
+        android:textColor="@color/purple_default"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
